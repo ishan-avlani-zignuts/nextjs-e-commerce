@@ -2,32 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+
+
+
+
+
+
+.navbar-nav li a{
+  font-size: 17px;
+}
+.navbar-brand{
+  letter-spacing: 3px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+nav {
+  width: 100%;
 }
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+/* No changes needed for nav */
+ul {
+  @apply list-none m-0 p-0 overflow-hidden border border-purple-600 bg-black;
+}
+li {
+  @apply float-left;
+}
+li a {
+  @apply block text-white text-center py-4 px-4 no-underline text-lg;
+}
+li a:hover {
+  @apply text-black bg-white;
+}
+li a.active {
+  @apply text-black bg-white;
 }
