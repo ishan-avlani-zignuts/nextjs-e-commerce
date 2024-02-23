@@ -7,6 +7,8 @@ import axios from "axios";
 import { add } from "../../Redux/cartSlice";
 import { useDispatch } from "react-redux";
 import Navbar from "../components/navbar/page";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function Products() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -22,7 +24,8 @@ function Products() {
         );
         setCategories(response.data);
       } catch (error) {
-        console.error("Error fetching categories:", error);
+        //console.error("Error fetching categories:", error);
+        toast.error("Error fetching categories:", error)
       }
     };
 
@@ -40,7 +43,8 @@ function Products() {
       setProducts(response.data);
       setLoading(false);
     } catch (error) {
-      console.error("Error fetching products:", error);
+     // console.error("Error fetching products:", error);
+     toast.error("error fetching products")
     }
   };
 

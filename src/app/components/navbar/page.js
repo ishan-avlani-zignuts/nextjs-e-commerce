@@ -18,6 +18,7 @@ function Navbar() {
           <li>
             <Link href="#">Avlani Mall</Link>
           </li>
+
           <li>
             <Link href="/products">Products</Link>
           </li>

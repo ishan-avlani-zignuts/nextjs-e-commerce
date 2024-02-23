@@ -4,7 +4,8 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../../Redux/userSlice'; 
 import { useRouter } from 'next/navigation'; 
-
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function LoginPage() {
     const dispatch = useDispatch();
     const router = useRouter(); 
@@ -21,19 +22,21 @@ function LoginPage() {
     const handleSubmit = (e) => {
         e.preventDefault();
         
-        console.log('User State:', user); 
-        console.log('Form Data:', formData); 
+        //console.log('User State:', user); 
+       // console.log('Form Data:', formData); 
         
         
         if (user && user.email === formData.email && user.password === formData.password) {
             
             dispatch(loginUser(user)); 
             router.push('/products');
-            console.log('Login successful');
+          //  console.log('Login successful');
+          toast.success("logged in successfully");
+
         } else {
             
-            console.log('Invalid credentials');
-           
+           // console.log('Invalid credentials');
+           toast.errro("invalid credentials");
         }
     };
 

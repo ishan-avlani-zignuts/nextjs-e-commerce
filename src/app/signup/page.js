@@ -5,7 +5,8 @@ import { setUser } from "../../Redux/userSlice";
 import { useRouter } from "next/navigation";
 import signup_img from "../../images/signup1.avif";
 import Image from "next/image";
-
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function Signup() {
   const dispatch = useDispatch();
   const router = useRouter();
@@ -23,10 +24,11 @@ function Signup() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log("Form Data:", formData);
+  //  console.log("Form Data:", formData);
     dispatch(setUser(formData));
 
     router.push("/login");
+    toast.success("data added successfully");
   };
 
   return (
